@@ -1,5 +1,5 @@
 # Secure-WebSite-Terraform
-Deploy Highly Available Scalable Secure website using terraform module on AWS Cloud Platform
+Deploy Highly Available Scalable Secure website using Terraform module on AWS Cloud Platform
 
 
 # What is this repository for?
@@ -36,12 +36,13 @@ AWS access credentials must be supplied on the command line. This Terraform scri
 2. main.tf :- Used to call custom modules we created and keep it in ./modules directory.
 3. install.sh :- Contain Shell Script to install HTTPD service
 4. variables.tf:- Used by main.tf to fetch variable's sets in the file.
+5. outputs.tf :- It will print LB DNS name Once your code runs successfully
 5. ./modules/networking/main.tf :- Contains code to deploy VPC/subnet's(Public/Private),Elastic IP's,Internet Gateway,Security Group's,NAT Gateway,Route Table's
 6. ./modules/networking/variable.tf :- Used by main.tf to fetch variable's sets in the file.
 7. ./modules/networking/outputs.tf:- It will hold subnet ids and security group ids which will use by auto scaling module.
 8. ./modules/autoscaling/main.tf :- Contains code to deploy AutoScaling Group with Launch Template, Application Load Balancer, ALB Target Group, ALB Target Group Listeners, ASG Scale up and Down Policy, Create A record in route 53.
 9. ./modules/autoscaling/variables.tf :- Used by main.tf to fetch variable's sets in the file.
-10. ./modules/autoscaling/outputs.tf :- It will print LB DNS name Once your code runs successfully.
+10. ./modules/autoscaling/outputs.tf :- It will hold LB DNS name.
 
 # Deployment
 
