@@ -1,5 +1,5 @@
-# secure-web-terrform
-Deploy Highly Availabel Secure website using terraform module on AWS Cloud Platform
+# Secure-WebSite-Terraform
+Deploy Highly Available Scalable Secure website using terraform module on AWS Cloud Platform
 
 
 # What is this repository for?
