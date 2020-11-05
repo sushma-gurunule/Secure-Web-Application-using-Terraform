@@ -23,9 +23,9 @@ variable "subnet_private" {
 }
 
 variable "certificate_arn" {
-  default = "arn:aws:acm:us-east-1:129632609039:certificate/e7cbbf0d-0bb5-45c9-abde-18381a757296"
+  default = "Enter Your ARN Certificate generated from certificate manager"
 }
 
 variable "route53_hosted_zone_name" {
-  default = "cmcloudlab881.info"
+  default = "Enter You Hosted Domain Name from AWS Route53"
 }
