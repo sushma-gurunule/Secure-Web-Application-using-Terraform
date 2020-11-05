@@ -5,15 +5,15 @@ Deploy Highly Availabel Secure website using terraform module on AWS Cloud Platf
 # What is this repository for?
 This is an example of Terraform project which deploys a Secure web application using AWS infrastructure that is:
 
-• Isolated in a VPC
-• Load balanced
-• Auto scaled
-• Secured by SSL
-• DNS routed with Route53
-• Restricted to traffic from a list of allowed IP addresse
-• NAT Gateway  
-• Accessible by SSH 
-• Terraform Module
+    • Isolated in a VPC
+    • Load balanced
+    • Auto scaled
+    • Secured by SSL
+    • DNS routed with Route53
+    • Restricted to traffic from a list of allowed IP addresse
+    • NAT Gateway  
+    • Accessible by SSH 
+    • Terraform Custom Module
 
 
 # How do I get set up?
@@ -36,22 +36,22 @@ AWS access credentials must be supplied on the command line. This Terraform scri
 2. main.tf :- Used to call custom modules we created and keep it in ./modules directory.
 3. install.sh :- Contain Shell Script to install HTTPD service
 4. variables.tf:- Used by main.tf to fetch variable's sets in the file.
-5. ./modules/networking/main.tf :- Contains code to deploy VPC/subnet's(Public/Private),Elastic IP's,Ineternet Gateway,Security Group's,NAT Gateway's,Route Table's
+5. ./modules/networking/main.tf :- Contains code to deploy VPC/subnet's(Public/Private),Elastic IP's,Internet Gateway,Security Group's,NAT Gateway,Route Table's
 6. ./modules/networking/variable.tf :- Used by main.tf to fetch variable's sets in the file.
-7. ./modules/networking/outputs.tf:- It will hold subnet ids and security group ids which will use by autoscaling module.
-8. ./modules/autoscaling/main.tf :- Contains code to deploy AutoScaling Group with Launch Teamplete, Application Load Balancer, ALB Target Group, ALB Target Group Listeners, ASG Scale up and Down Policy, Create A record in route 53.
+7. ./modules/networking/outputs.tf:- It will hold subnet ids and security group ids which will use by auto scaling module.
+8. ./modules/autoscaling/main.tf :- Contains code to deploy AutoScaling Group with Launch Template, Application Load Balancer, ALB Target Group, ALB Target Group Listeners, ASG Scale up and Down Policy, Create A record in route 53.
 9. ./modules/autoscaling/variables.tf :- Used by main.tf to fetch variable's sets in the file.
-10. ./modules/autoscaling/outputs.tf :- It will print LB DNS name Once your code run successfully.
+10. ./modules/autoscaling/outputs.tf :- It will print LB DNS name Once your code runs successfully.
 
 # Deployment
 
 1. First you have to create a key pair that will be assigned to our instances. I have used name as "mykey" by passing command : "ssh-keygen -f mykey" in same 
-   directory where all the files are placed.
-2. Create SSL/TLS Public certificate or if you have private certificate you can import it to AWS Certificate Manager and create certificate. Once certificate is created successfully please copy AWS ARN of certificate and update in variables file with Domain Name and AWS ARN which is present in ./module/autoscaling
-3. terraform get  :- Download and update modules mentioned in the root module (main.tf from root directory). 
+   directory where all the files are placed.
+2. Create SSL/TLS Public certificate or if you have a private certificate you can import it to AWS Certificate Manager and create a certificate. Once certificate is created successfully please copy AWS ARN of certificate and update in variables file with Domain Name and AWS ARN which is present in ./module/autoscaling
+3. terraform get  :- Download and update modules mentioned in the root module (main.tf from root directory). 
 4. terraform init :- To setup provisioner
 5. terraform plan :- It will show the planning of resources. 
-6. terraform apply :- It will provision the mentioned services in mentioned AWS account.
+6. terraform apply :- It will provision the services mentioned in the AWS account.
 7. terraform destroy : - It will destroy all the resources which are provisioned by terraform.
 
 If the deployment is successful you should now be able to see the infrastructure created in the AWS web console. After a delay while the web instances are 
