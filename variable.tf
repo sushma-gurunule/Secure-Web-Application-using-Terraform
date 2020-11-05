@@ -18,6 +18,6 @@ variable "region" {
 
 variable "PATH_TO_PUBLIC_KEY" {
   description = "Public Key"
-  default     = "Enter your Public Key generated using puttygen or ssh-keygen command"
+  default     = "mykey.pub" #Enter your Public Key generated using puttygen or ssh-keygen command
 }
 
