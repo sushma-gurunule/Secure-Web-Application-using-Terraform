@@ -137,7 +137,7 @@ resource "aws_security_group" "alb_sg" {
     protocol    = "tcp"
     from_port   = 80
     to_port     = 80
-    cidr_blocks = ["0.0.0.0/0"] # We have allowed all subnet but In Production we need to specify Web-server Subnet.
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {
@@ -168,14 +168,14 @@ resource "aws_security_group" "web_sg" {
     protocol    = "tcp"
     from_port   = 80
     to_port     = 80
-    cidr_blocks = ["0.0.0.0/0"]  # We have allowed all subnet but In Production we need to specify ALB IP or specific Priavte IP range from where we will access website.
+    cidr_blocks = ["0.0.0.0/0"] 
   }
 
   ingress {
     protocol    = "tcp"
     from_port   = 22
     to_port     = 22
-    cidr_blocks = ["0.0.0.0/0"]  # We have allowed all subnet but In Production we need to specify Jump server IP or specific Priavte IP range from where we will access servers. 
+    cidr_blocks = ["0.0.0.0/0"]  
   }
 
   egress {
